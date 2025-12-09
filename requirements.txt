@@ -1,0 +1,21 @@
+# Meeting Video Captioning & Documentation Program
+# Python Dependencies
+
+# Core dependencies
+opencv-python>=4.8.0
+openai-whisper>=20231117
+moviepy>=1.0.3
+yt-dlp>=2023.11.16
+python-docx>=1.1.0
+reportlab>=4.0.7
+scikit-image>=0.21.0
+numpy>=1.24.0
+Pillow>=10.0.0
+
+# Optional GUI
+# tkinter is usually included with Python, but may need to be installed separately on some systems
+
+# Additional utilities
+tqdm>=4.66.0
+pydub>=0.25.1
+
