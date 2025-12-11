@@ -669,7 +669,8 @@ SOFTWARE.
 
 
 If this project helped you, please consider giving it a ⭐️!
-<img width="820" height="322" alt="image" src="https://github.com/user-attachments/assets/8cf7d29f-8860-47ee-a738-40e018c3ee32" />
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/3bccc544-c84a-4012-9544-a57f89a43570" />
+
 
 [![Star History Chart](https://api.star-history.com/svg?repos=kanishgask/AI-Powered-Automated-Video-Analysis-Pipeline&type=Date)](https://star-history.com/#kanishgask/AI-Powered-Automated-Video-Analysis-Pipeline&Date)
 
