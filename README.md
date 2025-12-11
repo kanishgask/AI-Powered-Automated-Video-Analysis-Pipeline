@@ -39,7 +39,7 @@ This project is a **comprehensive solution** for automatically processing meetin
 Built for the **AI Intern Screening Test**, this system demonstrates proficiency in computer vision, natural language processing, video processing, and automation engineering.
 
 ### 🎬 See It In Action
-[🎥 Watch 3-Minute Demo Video](https://your-demo-link-here.com) | [📄 View Sample Report](https://your-sample-report-link.com)
+[🎥 Watch 3-Minute Demo Video](https://drive.google.com/file/d/14agRRaKQ_oCZ0qTQOqN2mySeMk_7tgNw/view?usp=sharing) | [📄 View Sample Report](https://your-sample-report-link.com)
 
 ---
 
@@ -81,18 +81,20 @@ Built for the **AI Intern Screening Test**, this system demonstrates proficiency
 ### Processing Workflow
 ![Demo GIF Placeholder](https://via.placeholder.com/800x400?text=Demo+GIF+Here)
 
+https://drive.google.com/file/d/14agRRaKQ_oCZ0qTQOqN2mySeMk_7tgNw/view?usp=sharing
+
 ### Sample Outputs
 
 #### 1. Generated Report Preview
-![Report Preview](https://via.placeholder.com/600x400?text=Report+Sample)
+
 
 #### 2. Captioned Video Output
-![Video Output](https://via.placeholder.com/600x400?text=Captioned+Video)
+
 
 #### 3. Scene Detection Results
-![Scene Detection](https://via.placeholder.com/600x400?text=Scene+Detection)
 
-**📹 Full Demo Video**: [Watch on YouTube](https://your-youtube-link.com)
+
+**📹 Full Demo Video**: https://drive.google.com/file/d/14agRRaKQ_oCZ0qTQOqN2mySeMk_7tgNw/view?usp=sharing
 
 ---
 
