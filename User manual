@@ -1,0 +1,1091 @@
+# AI-Powered Meeting Video Captioning & Documentation System
+## User Manual v1.0
+
+---
+
+**Document Version:** 1.0  
+**Date:** December 2025  
+**Author:** Kanishga SK  
+**Contact:** github.com/kanishgask
+
+---
+
+## Table of Contents
+
+1. [Introduction](#1-introduction)
+2. [System Requirements](#2-system-requirements)
+3. [Installation Guide](#3-installation-guide)
+4. [Getting Started](#4-getting-started)
+5. [Step-by-Step Usage Tutorial](#5-step-by-step-usage-tutorial)
+6. [Understanding the Outputs](#6-understanding-the-outputs)
+7. [Configuration Options](#7-configuration-options)
+8. [Advanced Features](#8-advanced-features)
+9. [Troubleshooting](#9-troubleshooting)
+10. [Frequently Asked Questions](#10-frequently-asked-questions)
+11. [Best Practices](#11-best-practices)
+12. [Support & Contact](#12-support--contact)
+
+---
+
+## 1. Introduction
+
+### 1.1 What is This Application?
+
+The **AI-Powered Meeting Video Captioning & Documentation System** is a comprehensive Python application that automatically processes meeting videos to create:
+
+- **Accurate transcriptions** using OpenAI Whisper AI
+- **Professional burned-in captions** synchronized with audio
+- **Detailed meeting reports** with screenshots and timestamps
+- **Scene change detection** to identify slide transitions
+- **UI interaction logs** tracking clicks and movements
+
+### 1.2 Who Should Use This?
+
+This application is perfect for:
+
+- **Meeting Organizers** who need automated documentation
+- **Educational Institutions** creating accessible lecture content
+- **Content Creators** adding professional captions to videos
+- **Compliance Teams** requiring meeting records
+- **Accessibility Coordinators** ensuring ADA/WCAG compliance
+- **Researchers** analyzing video content
+
+### 1.3 Key Benefits
+
+✅ **Save Time:** Automate hours of manual transcription work  
+✅ **Improve Accessibility:** Add captions for hearing-impaired audiences  
+✅ **Never Miss Details:** Comprehensive reports capture everything  
+✅ **Professional Quality:** Production-ready outputs  
+✅ **Multi-Format Support:** Works with local files, YouTube, cloud storage  
+✅ **Privacy-First:** 100% local processing, no cloud uploads  
+
+---
+
+## 2. System Requirements
+
+### 2.1 Minimum Requirements
+
+| Component | Requirement |
+|-----------|-------------|
+| **Operating System** | Windows 10+, macOS 10.15+, Ubuntu 20.04+ |
+| **Processor** | Intel Core i3 / AMD Ryzen 3 (or equivalent) |
+| **RAM** | 4 GB minimum |
+| **Storage** | 5 GB free space |
+| **Python** | Version 3.8 or higher |
+| **Internet** | Required for downloading models and YouTube videos |
+
+### 2.2 Recommended Requirements
+
+| Component | Recommendation |
+|-----------|----------------|
+| **Processor** | Intel Core i5 / AMD Ryzen 5 or better |
+| **RAM** | 8 GB or more |
+| **Storage** | 10 GB free space (for processing multiple videos) |
+| **GPU** | NVIDIA GPU with CUDA support (optional, speeds up processing) |
+
+### 2.3 Software Dependencies
+
+The following software must be installed:
+
+1. **Python 3.8+** - Programming language runtime
+2. **FFmpeg** - Multimedia processing framework
+3. **pip** - Python package installer (included with Python)
+
+---
+
+## 3. Installation Guide
+
+### 3.1 Step 1: Install Python
+
+#### Windows
+1. Download Python from [python.org/downloads](https://python.org/downloads)
+2. Run the installer
+3. **Important:** Check "Add Python to PATH" during installation
+4. Click "Install Now"
+5. Verify installation:
+   ```cmd
+   python --version
+   ```
+
+#### macOS
+```bash
+# Using Homebrew (recommended)
+brew install python@3.11
+
+# Verify installation
+python3 --version
+```
+
+#### Linux (Ubuntu/Debian)
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+
+# Verify installation
+python3 --version
+```
+
+### 3.2 Step 2: Install FFmpeg
+
+#### Windows
+
+**Option 1: Using Chocolatey (Recommended)**
+```cmd
+choco install ffmpeg
+```
+
+**Option 2: Manual Installation**
+1. Download from [ffmpeg.org/download.html](https://ffmpeg.org/download.html)
+2. Extract to `C:\ffmpeg`
+3. Add `C:\ffmpeg\bin` to System PATH:
+   - Search "Environment Variables" in Start Menu
+   - Click "Environment Variables"
+   - Under "System Variables", find "Path"
+   - Click "Edit" → "New"
+   - Add `C:\ffmpeg\bin`
+   - Click "OK" on all dialogs
+4. **Restart your terminal**
+
+#### macOS
+```bash
+brew install ffmpeg
+```
+
+#### Linux (Ubuntu/Debian)
+```bash
+sudo apt update
+sudo apt install ffmpeg
+```
+
+#### Linux (RHEL/CentOS)
+```bash
+sudo yum install ffmpeg
+```
+
+**Verify FFmpeg Installation:**
+```bash
+ffmpeg -version
+```
+
+You should see output showing FFmpeg version information.
+
+### 3.3 Step 3: Download the Application
+
+#### Option 1: Using Git (Recommended)
+```bash
+git clone https://github.com/kanishgask/AI-Powered-Automated-Video-Analysis-Pipeline.git
+cd AI-Powered-Automated-Video-Analysis-Pipeline
+```
+
+#### Option 2: Download ZIP
+1. Go to the GitHub repository
+2. Click "Code" → "Download ZIP"
+3. Extract the ZIP file
+4. Open terminal in the extracted folder
+
+### 3.4 Step 4: Install Python Dependencies
+
+```bash
+# Install all required packages
+pip install -r requirements.txt
+```
+
+This will install:
+- openai-whisper (AI transcription)
+- opencv-python (video processing)
+- yt-dlp (YouTube downloads)
+- gdown (Google Drive downloads)
+- ffmpeg-python (video manipulation)
+- python-docx (Word document generation)
+- reportlab (PDF generation)
+- scikit-image (image analysis)
+- Pillow (image processing)
+- tqdm (progress bars)
+
+**Installation may take 5-10 minutes** depending on your internet speed.
+
+### 3.5 Step 5: Verify Installation
+
+Run this verification command:
+
+```bash
+python -c "import whisper, cv2, yt_dlp; print('✅ Installation successful!')"
+```
+
+**Expected Output:**
+```
+✅ Installation successful!
+```
+
+If you see this message, you're ready to use the application!
+
+---
+
+## 4. Getting Started
+
+### 4.1 First Run
+
+Open your terminal/command prompt and navigate to the application directory:
+
+```bash
+cd AI-Powered-Automated-Video-Analysis-Pipeline
+python main.py
+```
+
+You'll see the welcome screen:
+
+```
+======================================================================
+  Meeting Video Captioning & Documentation Program
+======================================================================
+
+Enter video source:
+  - Local file path (e.g., /path/to/video.mp4)
+  - YouTube URL (e.g., https://www.youtube.com/watch?v=...)
+  - Cloud storage link (Google Drive, Dropbox, etc.)
+
+Source: 
+```
+
+### 4.2 Choosing Your First Video
+
+**For testing, we recommend starting with a short YouTube video (3-5 minutes).**
+
+Example test videos:
+- Short TED Talk: `https://www.youtube.com/watch?v=8jPQjjsBbIc`
+- Tech tutorial: `https://www.youtube.com/watch?v=rfscVS0vtbw`
+
+Paste the URL and press Enter.
+
+### 4.3 What Happens Next
+
+The application will automatically:
+
+1. **Download** the video (if from YouTube/cloud)
+2. **Extract** audio from the video
+3. **Transcribe** speech using AI
+4. **Detect** scene changes and interactions
+5. **Generate** a comprehensive report
+6. **Burn** captions into the video
+
+**Processing time:** Approximately 2-5 minutes for a 5-minute video.
+
+---
+
+## 5. Step-by-Step Usage Tutorial
+
+### 5.1 Processing a Local Video File
+
+**Step 1:** Place your video file in an easy-to-access location
+
+**Step 2:** Run the application
+```bash
+python main.py
+```
+
+**Step 3:** Enter the full path to your video
+
+**Windows Example:**
+```
+Source: C:\Users\YourName\Videos\team_meeting.mp4
+```
+
+**Mac/Linux Example:**
+```
+Source: /home/username/videos/team_meeting.mp4
+```
+
+**Step 4:** Wait for processing to complete
+
+**Step 5:** Find your outputs in the `outputs/` folder
+
+### 5.2 Processing a YouTube Video
+
+**Step 1:** Find the video on YouTube
+
+**Step 2:** Copy the video URL from the address bar
+
+**Step 3:** Run the application
+```bash
+python main.py
+```
+
+**Step 4:** Paste the YouTube URL
+```
+Source: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+```
+
+**Step 5:** The video will be automatically downloaded and processed
+
+**Note:** The application works with:
+- ✅ Public YouTube videos
+- ✅ Unlisted YouTube videos
+- ❌ Private videos (requires manual download)
+- ❌ Age-restricted videos (use local file method)
+
+### 5.3 Processing Cloud Storage Videos
+
+#### Google Drive
+
+**Step 1:** Upload your video to Google Drive
+
+**Step 2:** Right-click the video → "Get link"
+
+**Step 3:** Set sharing to "Anyone with the link"
+
+**Step 4:** Copy the share link
+
+**Step 5:** Run the application and paste the link
+```
+Source: https://drive.google.com/file/d/1a2b3c4d5e6f7g8h9i0/view?usp=sharing
+```
+
+#### Dropbox
+
+**Step 1:** Upload your video to Dropbox
+
+**Step 2:** Click "Share" → "Create link"
+
+**Step 3:** Copy the link
+
+**Step 4:** Change `www.dropbox.com` to `dl.dropboxusercontent.com` in the URL
+
+**Step 5:** Paste the modified link
+
+### 5.4 Understanding the Processing Steps
+
+#### STEP 1: Downloading/Loading Video
+```
+----------------------------------------------------------------------
+STEP 1: Downloading/Loading Video
+----------------------------------------------------------------------
+Downloading YouTube video: https://www.youtube.com/watch?v=example
+✓ Video ready: example_video.mp4
+```
+**What's happening:** The video is being downloaded or loaded
+
+**Time:** 30 seconds - 5 minutes (depending on video size and internet speed)
+
+#### STEP 2: Extracting Audio
+```
+----------------------------------------------------------------------
+STEP 2: Extracting Audio
+----------------------------------------------------------------------
+Extracting audio from: example_video.mp4
+✓ Audio extracted: example_video.wav
+```
+**What's happening:** FFmpeg is extracting the audio track as a WAV file
+
+**Time:** 10-30 seconds
+
+#### STEP 3: Transcribing Audio
+```
+----------------------------------------------------------------------
+STEP 3: Transcribing Audio with Whisper
+----------------------------------------------------------------------
+Loading Whisper model: base
+Transcribing audio: example_video.wav
+Transcription completed!
+✓ SRT file generated: outputs/captions/captions.srt
+```
+**What's happening:** 
+- AI is analyzing the audio
+- Converting speech to text
+- Generating timestamped subtitles
+
+**Time:** 1-3 minutes per minute of video (varies by model size)
+
+**First Run:** Whisper model will download (100-3000 MB depending on model)
+
+#### STEP 4: Detecting Scenes & Interactions
+```
+----------------------------------------------------------------------
+STEP 4: Detecting Scene Changes & UI Interactions
+----------------------------------------------------------------------
+Detecting scenes in: example_video.mp4
+Scene change detected at 00:02:15 (similarity: 0.245)
+Scene change detected at 00:05:30 (similarity: 0.198)
+✓ Scene detection completed: 2 scene changes detected
+✓ Click detection completed: 15 interactions detected
+```
+**What's happening:**
+- Analyzing video frames
+- Identifying major content changes (slide transitions, scene changes)
+- Detecting UI interactions (clicks, movements)
+- Saving screenshots
+
+**Time:** 30 seconds - 2 minutes
+
+#### STEP 5: Generating Report
+```
+----------------------------------------------------------------------
+STEP 5: Generating Meeting Report
+----------------------------------------------------------------------
+Generating DOCX report: outputs/reports/meeting_report_20231201_143022.docx
+✓ DOCX report generated
+```
+**What's happening:**
+- Compiling all data
+- Adding screenshots
+- Formatting transcript
+- Creating document
+
+**Time:** 10-30 seconds
+
+#### STEP 6: Burning Captions
+```
+----------------------------------------------------------------------
+STEP 6: Burning Captions into Video
+----------------------------------------------------------------------
+Burning captions into video...
+Running FFmpeg (this may take a while)...
+✓ Captions burned successfully!
+```
+**What's happening:**
+- Embedding subtitles into video
+- Re-encoding video with captions
+
+**Time:** Equal to video length (e.g., 5-minute video = ~5 minutes)
+
+#### Completion
+```
+======================================================================
+  PROCESSING COMPLETE!
+======================================================================
+
+Outputs saved to:
+  • Captioned Video: outputs/final_videos/example_video_captioned.mp4
+  • Report: outputs/reports/meeting_report_20231201_143022.docx
+  • Captions: outputs/captions/captions.srt
+  • Screenshots: outputs/frames/example_video/
+```
+
+---
+
+## 6. Understanding the Outputs
+
+### 6.1 Output Folder Structure
+
+After processing, you'll find these files:
+
+```
+outputs/
+├── audio/                    # Extracted audio files
+│   └── video_name.wav
+│
+├── captions/                 # Subtitle files
+│   └── captions.srt
+│
+├── frames/                   # Scene screenshots
+│   └── video_name/
+│       ├── scene_001_00-00-15.jpg
+│       ├── scene_002_00-02-30.jpg
+│       └── ...
+│
+├── reports/                  # Generated reports
+│   └── meeting_report_YYYYMMDD_HHMMSS.docx
+│
+├── final_videos/             # Captioned videos
+│   └── video_name_captioned.mp4
+│
+└── temp/                     # Temporary files (auto-cleaned)
+```
+
+### 6.2 SRT Caption File
+
+**Location:** `outputs/captions/captions.srt`
+
+**Format:** Standard SubRip subtitle format
+
+**Example Content:**
+```srt
+1
+00:00:00,000 --> 00:00:03,500
+Welcome everyone to today's quarterly review meeting.
+
+2
+00:00:03,500 --> 00:00:07,200
+Let's start by reviewing our Q3 performance metrics.
+
+3
+00:00:07,200 --> 00:00:11,800
+As you can see on this slide, we've exceeded our targets by 15%.
+```
+
+**Usage:**
+- Play with any media player that supports SRT files
+- Edit captions if needed
+- Use for creating multi-language versions
+- Submit for closed captioning services
+
+### 6.3 Meeting Report (DOCX/PDF)
+
+**Location:** `outputs/reports/meeting_report_[timestamp].docx`
+
+**Contents:**
+
+#### Section 1: Video Information
+- Title and filename
+- Duration
+- Resolution
+- File size
+- Processing date and time
+
+#### Section 2: Scene Changes Detected
+- Total number of scene changes
+- Screenshots of each scene
+- Timestamp for each scene
+- Associated transcript segment
+
+**Example:**
+```
+SCENE 1 - 00:00:15
+[Screenshot of opening slide]
+Transcript: "Welcome everyone to today's meeting..."
+
+SCENE 2 - 00:02:30
+[Screenshot of agenda slide]
+Transcript: "Here's our agenda for today: first we'll cover..."
+```
+
+#### Section 3: Full Transcript
+Complete timestamped transcript of all spoken content
+
+**Example:**
+```
+[00:00:00] Speaker: Welcome everyone to today's quarterly review.
+[00:00:15] Speaker: Let's begin by looking at our Q3 numbers.
+[00:02:30] Speaker: As you can see here, revenue increased by 15%.
+```
+
+#### Section 4: UI Interactions Log
+List of detected interactions with timestamps
+
+**Example:**
+```
+• 00:01:22 - Click detected (button interaction)
+• 00:03:45 - Mouse movement (highlighting text)
+• 00:05:10 - Scroll action
+```
+
+#### Section 5: Summary
+Key points and highlights extracted from the meeting
+
+### 6.4 Captioned Video
+
+**Location:** `outputs/final_videos/[video_name]_captioned.mp4`
+
+**Features:**
+- Original video quality maintained
+- Professional burned-in captions
+- Captions synchronized with audio
+- Customizable styling (via config.py)
+
+**File Size:** Approximately same as original video
+
+**Format:** MP4 (H.264 codec, compatible with all players)
+
+### 6.5 Frame Screenshots
+
+**Location:** `outputs/frames/[video_name]/`
+
+**Contents:**
+- One screenshot per detected scene change
+- Named with timestamp: `scene_001_00-02-15.jpg`
+- High-quality JPEG format
+
+**Usage:**
+- Quick visual reference
+- Slide deck extraction
+- Meeting minute attachments
+- Presentation creation
+
+---
+
+## 7. Configuration Options
+
+### 7.1 Accessing Configuration
+
+Open `config.py` in any text editor to customize behavior.
+
+### 7.2 Whisper Model Selection
+
+```python
+WHISPER_MODEL = "base"  # Options: tiny, base, small, medium, large
+```
+
+**Model Comparison:**
+
+| Model | Size | Speed | Accuracy | RAM Usage | Best For |
+|-------|------|-------|----------|-----------|----------|
+| `tiny` | ~75 MB | Fastest | Good | ~1 GB | Quick testing, drafts |
+| `base` | ~145 MB | Fast | Better | ~2 GB | **Recommended default** |
+| `small` | ~466 MB | Moderate | Great | ~3 GB | High-quality transcripts |
+| `medium` | ~1.5 GB | Slow | Excellent | ~5 GB | Professional work |
+| `large` | ~3 GB | Slowest | Best | ~10 GB | Maximum accuracy needed |
+
+**When to change:**
+- Use `tiny` for quick testing or drafts
+- Use `small` or `medium` for professional deliverables
+- Use `large` for critical accuracy (medical, legal recordings)
+
+### 7.3 Scene Detection Settings
+
+```python
+SCENE_CHANGE_THRESHOLD = 0.30  # Range: 0.0 - 1.0
+```
+
+**Understanding the threshold:**
+- **Lower value (0.15-0.25):** More sensitive, detects subtle changes
+  - Use for: Videos with small UI changes, cursor movements
+- **Medium value (0.30-0.35):** Balanced detection (recommended)
+  - Use for: Standard meetings, presentations
+- **Higher value (0.40-0.50):** Less sensitive, only major changes
+  - Use for: Videos with camera movement, dynamic content
+
+**Example scenarios:**
+```python
+# For slide-based presentations (detect every slide change)
+SCENE_CHANGE_THRESHOLD = 0.25
+
+# For recorded meetings (avoid detecting minor movements)
+SCENE_CHANGE_THRESHOLD = 0.35
+
+# For screencasts (detect significant UI changes only)
+SCENE_CHANGE_THRESHOLD = 0.40
+```
+
+### 7.4 Frame Sampling Rate
+
+```python
+FRAME_SAMPLE_RATE = 30  # Process every Nth frame
+```
+
+**Understanding frame sampling:**
+- **Lower value (1-10):** Analyze more frames, higher accuracy, slower
+- **Higher value (30-60):** Skip more frames, faster, may miss quick changes
+
+**Guidelines:**
+```python
+# For videos with rapid changes (live demos, coding)
+FRAME_SAMPLE_RATE = 10
+
+# For standard meetings (recommended)
+FRAME_SAMPLE_RATE = 30
+
+# For long webinars (optimize for speed)
+FRAME_SAMPLE_RATE = 60
+```
+
+### 7.5 UI Interaction Detection
+
+```python
+INTERACTION_THRESHOLD = 50  # Pixel difference sensitivity
+```
+
+**Lower value** = Detects smaller movements  
+**Higher value** = Only detects significant interactions
+
+### 7.6 Report Format
+
+```python
+REPORT_FORMAT = "docx"  # Options: "docx" or "pdf"
+```
+
+**DOCX advantages:**
+- Editable
+- Can add comments
+- Easy to share and collaborate
+
+**PDF advantages:**
+- Fixed formatting
+- Universal compatibility
+- Smaller file size
+
+### 7.7 Caption Styling
+
+```python
+CAPTION_FONT_SIZE = 24
+CAPTION_FONT_COLOR = "white"
+CAPTION_BACKGROUND = "black@0.5"  # Semi-transparent
+CAPTION_POSITION = "bottom"  # Options: top, bottom, center
+```
+
+**Customization examples:**
+
+**Professional style:**
+```python
+CAPTION_FONT_SIZE = 20
+CAPTION_FONT_COLOR = "white"
+CAPTION_BACKGROUND = "black@0.7"
+CAPTION_POSITION = "bottom"
+```
+
+**YouTube style:**
+```python
+CAPTION_FONT_SIZE = 28
+CAPTION_FONT_COLOR = "white"
+CAPTION_BACKGROUND = "black@0.6"
+CAPTION_POSITION = "bottom"
+```
+
+**Accessibility focus:**
+```python
+CAPTION_FONT_SIZE = 32
+CAPTION_FONT_COLOR = "yellow"
+CAPTION_BACKGROUND = "black@0.8"
+CAPTION_POSITION = "bottom"
+```
+
+---
+
+## 8. Advanced Features
+
+### 8.1 Batch Processing Multiple Videos
+
+Create a simple batch script:
+
+**Windows (batch_process.bat):**
+```batch
+@echo off
+echo Processing multiple videos...
+
+python main.py < video1_path.txt
+python main.py < video2_path.txt
+python main.py < video3_path.txt
+
+echo All videos processed!
+pause
+```
+
+**Mac/Linux (batch_process.sh):**
+```bash
+#!/bin/bash
+echo "Processing multiple videos..."
+
+echo "/path/to/video1.mp4" | python main.py
+echo "/path/to/video2.mp4" | python main.py
+echo "/path/to/video3.mp4" | python main.py
+
+echo "All videos processed!"
+```
+
+### 8.2 Processing Long Videos (1+ hours)
+
+For videos longer than 1 hour, optimize performance:
+
+```python
+# In config.py
+WHISPER_MODEL = "base"  # or "tiny" for speed
+FRAME_SAMPLE_RATE = 60  # Process fewer frames
+SCENE_CHANGE_THRESHOLD = 0.35  # Reduce scene detections
+```
+
+**Alternative:** Split long videos into segments and process separately.
+
+### 8.3 Using GPU Acceleration (NVIDIA)
+
+If you have an NVIDIA GPU with CUDA:
+
+```bash
+# Install PyTorch with CUDA support
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# Whisper will automatically use GPU
+# Processing speed: 2-5x faster
+```
+
+### 8.4 Custom Whisper Language
+
+By default, Whisper auto-detects language. To force a specific language:
+
+Edit `modules/transcription.py`:
+```python
+result = model.transcribe(audio_path, language="en")  # Force English
+```
+
+Supported languages: en, es, fr, de, it, pt, nl, pl, ru, ja, ko, zh, and 90+ more
+
+### 8.5 Extracting Only Transcripts (Skip Video Processing)
+
+If you only need transcripts:
+
+1. Run until Step 3 completes
+2. Press `Ctrl+C` to cancel
+3. Find transcript in `outputs/captions/captions.srt`
+
+---
+
+## 9. Troubleshooting
+
+### 9.1 Installation Issues
+
+#### Problem: "Python not found"
+
+**Solution:**
+```bash
+# Verify Python installation
+python --version
+# or
+python3 --version
+
+# If not found, reinstall Python and check "Add to PATH"
+```
+
+#### Problem: "FFmpeg not found"
+
+**Solution:**
+```bash
+# Check if FFmpeg is installed
+ffmpeg -version
+
+# If error, install FFmpeg (see Section 3.2)
+
+# Windows: Ensure FFmpeg is in PATH
+# Restart terminal after adding to PATH
+```
+
+#### Problem: "pip install fails"
+
+**Solution:**
+```bash
+# Upgrade pip first
+python -m pip install --upgrade pip
+
+# Then retry
+pip install -r requirements.txt
+
+# If specific package fails, install individually:
+pip install openai-whisper
+pip install opencv-python
+# ... etc
+```
+
+### 9.2 Processing Errors
+
+#### Problem: "Out of memory during transcription"
+
+**Symptoms:**
+```
+MemoryError: Unable to allocate memory
+```
+
+**Solutions:**
+1. Use smaller Whisper model:
+   ```python
+   WHISPER_MODEL = "tiny"  # or "base"
+   ```
+2. Close other applications
+3. Process shorter video segments
+4. Add more RAM to your system
+
+#### Problem: "YouTube download failed"
+
+**Symptoms:**
+```
+ERROR: Unable to download video data
+```
+
+**Solutions:**
+1. Verify URL is correct
+2. Check internet connection
+3. Update yt-dlp:
+   ```bash
+   pip install --upgrade yt-dlp
+   ```
+4. Try different video (might be region-locked)
+5. Download manually and use local file method
+
+#### Problem: "Google Drive download permission denied"
+
+**Symptoms:**
+```
+Access denied / Cannot download file
+```
+
+**Solutions:**
+1. Ensure sharing is "Anyone with the link"
+2. Use direct download link, not preview link
+3. Alternative: Download manually and process as local file
+
+#### Problem: "Scene detection finds too many scenes"
+
+**Symptoms:**
+- Hundreds of screenshots generated
+- Report is extremely large
+
+**Solutions:**
+1. Increase threshold in config.py:
+   ```python
+   SCENE_CHANGE_THRESHOLD = 0.40  # Higher = less sensitive
+   ```
+2. Increase frame sample rate:
+   ```python
+   FRAME_SAMPLE_RATE = 60  # Process fewer frames
+   ```
+
+#### Problem: "Transcription is inaccurate"
+
+**Symptoms:**
+- Wrong words
+- Missing sentences
+- Garbled text
+
+**Solutions:**
+1. Use larger Whisper model:
+   ```python
+   WHISPER_MODEL = "small"  # or "medium"
+   ```
+2. Check audio quality (listen to WAV file in outputs/audio/)
+3. Ensure clear speech in original video
+4. For specific languages, set manually (see Section 8.4)
+
+#### Problem: "Caption burning takes too long"
+
+**Symptoms:**
+- FFmpeg step runs for hours
+
+**Solutions:**
+1. This is normal for long videos (encoding takes time)
+2. Speed up by lowering quality (for drafts):
+   Edit `modules/caption_burner.py`:
+   ```python
+   '-crf', '28'  # Higher = faster, lower quality (23 is default)
+   ```
+3. Use hardware acceleration (if available):
+   ```python
+   '-hwaccel', 'auto'
+   ```
+
+### 9.3 Output Issues
+
+#### Problem: "Captions out of sync with video"
+
+**Solution:**
+- This is rare but can happen with variable frame rate videos
+- Convert video to constant frame rate first:
+  ```bash
+  ffmpeg -i input.mp4 -r 30 output.mp4
+  ```
+- Then process the output.mp4
+
+#### Problem: "Report doesn't open"
+
+**Solution:**
+1. Ensure you have Word or LibreOffice installed
+2. Try opening with different application
+3. Convert DOCX to PDF:
+   ```bash
+   # Use online converter or
+   pip install docx2pdf
+   python -c "from docx2pdf import convert; convert('report.docx')"
+   ```
+
+#### Problem: "Video quality degraded after processing"
+
+**Solution:**
+- Quality settings in caption_burner.py
+- Lower CRF value = higher quality:
+  ```python
+  '-crf', '18'  # Higher quality (18-23 recommended)
+  ```
+
+---
+
+## 10. Frequently Asked Questions
+
+### 10.1 General Questions
+
+**Q: How long does processing take?**  
+A: Approximately 2-5 minutes per minute of video using the `base` Whisper model on moderate hardware. Total time = 2-5x video length.
+
+**Q: Does this work offline?**  
+A: Partially. After initial model download and for local videos, yes. YouTube/cloud videos require internet connection.
+
+**Q: Is my data sent to the cloud?**  
+A: No. All processing is 100% local. Your videos and transcripts never leave your computer.
+
+**Q: Can I cancel processing mid-way?**  
+A: Yes. Press `Ctrl+C` to cancel. Partial outputs may be saved.
+
+**Q: Does this work with live streams?**  
+A: No, only pre-recorded videos. For live streams, record first then process.
+
+### 10.2 Video Format Questions
+
+**Q: What video formats are supported?**  
+A: MP4, MOV, AVI, and most common formats supported by FFmpeg.
+
+**Q: What's the maximum video length?**  
+A: Tested up to 2 hours. Longer videos work but take proportionally more time.
+
+**Q: Can I process 4K videos?**  
+A: Yes, but processing time increases. Scene detection works on downscaled frames for efficiency.
+
+**Q: Do I need high-quality video?**  
+A: No. The application works with standard quality. Audio quality matters more for transcription.
+
+### 10.3 Transcription Questions
+
+**Q: How accurate is the transcription?**  
+A: With the `base` model: 85-95% accuracy for clear English speech. Improves with larger models.
+
+**Q: Does it support multiple speakers?**  
+A: Transcription yes, but speaker identification (diarization) is not included in current version.
+
+**Q: Can it transcribe heavy accents?**  
+A: Whisper handles accents well. Use `medium` or `large` model for better accuracy.
+
+**Q: What languages are supported?**  
+A: 99+ languages including English, Spanish, French, German, Chinese, Japanese, Arabic, Hindi, and more.
+
+**Q: Can I edit the transcript?**  
+A: Yes. Edit the SRT file in any text editor, then re-run caption burning with modified SRT.
+
+### 10.4 Output Questions
+
+**Q: Can I use the SRT file separately?**  
+A: Yes! Use it with any video player (VLC, YouTube, etc.) or editing software.
+
+**Q: Can I export the report as PDF instead of DOCX?**  
+A: Yes. Change `REPORT_FORMAT = "pdf"` in config.py.
+
+**Q: Are the original videos modified?**  
+A: No. Original videos are never changed. Captioned version is saved separately.
+
+**Q: Can I customize caption appearance?**  
+A: Yes. Edit caption styling in config.py (font, size, color, position).
+
+### 10.5 Technical Questions
+
+**Q: Can I run this on a Raspberry Pi?**  
+A: Yes, but it will be very slow. Use `tiny` model and expect 10-20x processing time.
+
+**Q: Does it support GPU acceleration?**  
+A: Yes, if you have NVIDIA GPU with CUDA. Install PyTorch with CUDA support (see Section 8.3).
+
+**Q: Can I automate this with a script?**  
+A: Yes. You can pipe input or modify main.py to accept command-line arguments.
+
+**Q: Is the code open source?**  
+A: Yes! MIT License. You can modify and distribute freely.
+
+---
+
+## 11. Best Practices
+
+### 11.1 For Best Transcription Quality
+
+✅ **DO:**
+- Use videos with clear audio
+- Minimize background noise
+- Ensure speakers speak at normal pace
+- Use high-quality microphones for recordings
+- Use `small` or `medium` Whisper model for important content
+
+❌ **DON'T:**
+- Process videos with very poor audio
+- Expect perfect accuracy with heavy background music
+- Use `tiny` model for professional/critical transcripts
+
+### 11.2 For Optimal Processing Speed
