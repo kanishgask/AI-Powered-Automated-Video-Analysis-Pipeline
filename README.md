@@ -78,20 +78,16 @@ Built for the **AI Intern Screening Test**, this system demonstrates proficiency
 
 ## 🎥 Demo
 
+
 ### Processing Workflow
-![Demo GIF Placeholder](https://via.placeholder.com/800x400?text=Demo+GIF+Here)
+<img width="820" height="322" alt="image" src="https://github.com/user-attachments/assets/174ea9a7-4b78-44f7-b9a5-c637881d7e9d" />
+
 
 https://drive.google.com/file/d/14agRRaKQ_oCZ0qTQOqN2mySeMk_7tgNw/view?usp=sharing
 
-### Sample Outputs
+### Sample outputs
+<img width="820" height="322" alt="image" src="https://github.com/user-attachments/assets/83dd0ce3-0807-4fd0-9243-36ffaedb4613" />
 
-#### 1. Generated Report Preview
-
-
-#### 2. Captioned Video Output
-
-
-#### 3. Scene Detection Results
 
 
 **📹 Full Demo Video**: https://drive.google.com/file/d/14agRRaKQ_oCZ0qTQOqN2mySeMk_7tgNw/view?usp=sharing
@@ -671,7 +667,9 @@ SOFTWARE.
 
 ## 🌟 Star History
 
+
 If this project helped you, please consider giving it a ⭐️!
+<img width="820" height="322" alt="image" src="https://github.com/user-attachments/assets/8cf7d29f-8860-47ee-a738-40e018c3ee32" />
 
 [![Star History Chart](https://api.star-history.com/svg?repos=kanishgask/AI-Powered-Automated-Video-Analysis-Pipeline&type=Date)](https://star-history.com/#kanishgask/AI-Powered-Automated-Video-Analysis-Pipeline&Date)
 
