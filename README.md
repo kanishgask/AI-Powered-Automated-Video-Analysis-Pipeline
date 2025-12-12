@@ -661,7 +661,7 @@ SOFTWARE.
 - **Author**: Kanishga SK
 - **GitHub**: [@kanishgask](https://github.com/kanishgask)
 - **Project Issues**: [GitHub Issues](https://github.com/kanishgask/AI-Powered-Automated-Video-Analysis-Pipeline/issues)
-- **Email**: [your-email@example.com]
+- **Email**: [kanishgakani2312@gmail.com]
 
 ---
 
@@ -676,21 +676,10 @@ If this project helped you, please consider giving it a ⭐️!
 
 ---
 
-## 📸 Screenshots
-
-### Main Interface
-![Main Interface](https://via.placeholder.com/800x500?text=Main+Interface+Screenshot)
-
-### Processing Progress
-![Processing](https://via.placeholder.com/800x500?text=Processing+Progress)
-
-### Generated Report
-![Report](https://via.placeholder.com/800x500?text=Report+Sample)
-
-### Final Output
-![Output](https://via.placeholder.com/800x500?text=Final+Captioned+Video)
-
----
+## 📸 Output
+** Visit here for all the outputs :**
+ 
+https://drive.google.com/drive/folders/1q5f99pTf-JAMSxH4CO3-PhbgIDlfAIWC?usp=sharing
 
 <div align="center">
 
