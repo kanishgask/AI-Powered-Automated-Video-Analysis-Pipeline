@@ -79,20 +79,12 @@ Built for the **AI Intern Screening Test**, this system demonstrates proficiency
 ## 🎥 Demo
 
 
-### Processing Workflow
-<img width="820" height="322" alt="image" src="https://github.com/user-attachments/assets/174ea9a7-4b78-44f7-b9a5-c637881d7e9d" />
-
-
-https://drive.google.com/file/d/14agRRaKQ_oCZ0qTQOqN2mySeMk_7tgNw/view?usp=sharing
-
-### Sample outputs
-<img width="820" height="322" alt="image" src="https://github.com/user-attachments/assets/83dd0ce3-0807-4fd0-9243-36ffaedb4613" />
-
-
-
 **📹 Full Demo Video**: https://drive.google.com/file/d/14agRRaKQ_oCZ0qTQOqN2mySeMk_7tgNw/view?usp=sharing
 
 ---
+### Sample outputs
+<img width="820" height="322" alt="image" src="https://github.com/user-attachments/assets/83dd0ce3-0807-4fd0-9243-36ffaedb4613" />
+https://drive.google.com/drive/folders/1q5f99pTf-JAMSxH4CO3-PhbgIDlfAIWC?usp=sharing
 
 ## 🏗️ System Architecture
 
